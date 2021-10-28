@@ -16,5 +16,5 @@ steps:
 - name: "docker/compose:1.28.2"
   args: ["build"]
 images:
-- 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:$COMMIT_SHA'
+- 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose'
 
