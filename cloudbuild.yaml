@@ -1,12 +1,23 @@
-steps:
-- name: 'docker/compose:1.28.2'
-  args: ['up', '-d']
-- name: "docker/compose:1.28.2"
-  args: ["build"]
-images: ['gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose']
+# steps:
+# - name: 'docker/compose:1.28.2'
+#   args: ['up', '-d']
+# - name: "docker/compose:1.28.2"
+#   args: ["build"]
+# images: ['gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose']
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: 'backend'
 #   args: ['build','-t', 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest','.']
 # - name: 'gcr.io/cloud-builders/docker'
 #   args: ['push', 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest']
 
+steps:
+- name: 'docker/compose:1.28.2'
+  args: ['up', '-d']
+- name: "docker/compose:1.28.2"
+  args: ["build"]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:$COMMIT_SHA', '-t', 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest', '.' ]
+images:
+- 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:$COMMIT_SHA'
+- 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest'
+timeout: 3600s
