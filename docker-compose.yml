@@ -26,14 +26,14 @@ services:
       - client
     restart: always
     build:
-      dockerfile: Dockerfile
+      dockerfile: ./client/Dockerfile
       context: ./nginx
     ports:
       - "3050:80"
 
   api:
     build:
-      dockerfile: Dockerfile
+      dockerfile: ./server/Dockerfile
       context: "./server"
     depends_on:
       - mysql_db
@@ -49,7 +49,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     build:
-      dockerfile: Dockerfile
+      dockerfile: ./client/Dockerfile
       context: ./client
     volumes:
       - /app/node_modules
