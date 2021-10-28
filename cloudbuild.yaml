@@ -14,4 +14,4 @@ steps:
 
 
 # Push the new image to the registry.
-images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
+#images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
