@@ -1,13 +1,12 @@
 steps:
   # running docker-compose
   # use Docker Compose to build instead of Docker
-- name: "docker/compose:1.26.2"
-  args: ["build"]
-# push the images just before we update the Kubernetes deployment
-- name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest"]
+# - name: "docker/compose:1.26.2"
+#   args: ["build"]
+# # push the images just before we update the Kubernetes deployment
+# - name: "gcr.io/cloud-builders/docker"
+#   args: ["push", "gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest"]
 # running docker-compose
 - name: 'docker/compose:1.26.2'
   args: ['up', '-d']
-
 
