@@ -1,20 +1,16 @@
-# Build-and-Dockerize-a-Full-stack-React-app-with-Node.js-MySQL-and-Nginx-for-reverse-proxy
+# MERN Docker Compose Demo
 
-Run `npm i` inside the client directory
+Video: https://youtu.be/0B2raYYH2fE
 
-Run `npm i` inside the server directory
+I followed [this tutorial](https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66) to get basic app working.
 
-Run `docker-compose up --build` inside the mainn project directory
+I then containerized the api server and react client and created docker-compose to connect them.
 
-Access the Adminer using route `http://localhost:8000/`.
+---
 
+Run `make build` from root to build containers
+Run `make run` from root to run containers with docker-compose
 
-To log in, use `mysql_db` as the server Username as `root` and password as `MYSQL_ROOT_PASSWORD`.
+---
 
-To start interacting with the application, open `http://localhost:3050/` on a browser.
-
-Check out the step by step explained guide [here](https://www.section.io/engineering-education/build-and-dockerize-a-full-stack-react-app-with-nodejs-and-nginx/)
-
-https://www.section.io/engineering-education/build-and-dockerize-a-full-stack-react-app-with-nodejs-and-nginx/
-
-yusuf karatoprak
+**NOTE:** This is a development configuration where the react app is being served by a separate container. We would also want to create a production version where we build a static version of the react site and serve it with something like nginx.
