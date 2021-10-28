@@ -1,31 +1,18 @@
-version: "3"
+version: '3'
+    
 services:
-  react-app:
-    image: react-app
-    stdin_open: true
-    ports: 
-      - "3000:3000"
-    networks:
-      - mern-app
-  api-server:
-    image: api-server
-    ports:
-      - "5000:5000"
-    networks:
-      - mern-app
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo:3.6.19-xenial
-    ports:
-      - "27017:27017"
-    networks:
-      - mern-app
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    image: gcr.io/devops-directive-project:django
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - mongo-data:/data/db
-networks:
-  mern-app:
-    driver: bridge
-volumes:
-  mongo-data:
-    driver: local
+      - .:/code
+    ports:
+      - "80:8000"
+    depends_on:
+      - db

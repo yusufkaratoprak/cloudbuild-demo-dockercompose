@@ -1,16 +1,26 @@
-# MERN Docker Compose Demo
+# Docker-compose on container optimized OS
 
-Video: https://youtu.be/0B2raYYH2fE
+## Customizing Makefile
 
-I followed [this tutorial](https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66) to get basic app working.
+Replace `PROJECT_ID` and `USER` to match your GCP project id and username
 
-I then containerized the api server and react client and created docker-compose to connect them.
+## Creating Static IP address and VM
+
+`make create-static-ip && make create-vm`
+
+## Deleting when done (so you dont keep getting charged)
+
+`make delete-vm` --> `y`
+`make delete-static-ip` -> `y`
+
+## SSH onto VM:
+
+`make ssh`
 
 ---
 
-Run `make build` from root to build containers
-Run `make run` from root to run containers with docker-compose
+## Django docker-compose example
 
----
+### link
 
-**NOTE:** This is a development configuration where the react app is being served by a separate container. We would also want to create a production version where we build a static version of the react site and serve it with something like nginx.
+https://docs.docker.com/compose/django/
