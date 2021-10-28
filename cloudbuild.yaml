@@ -1,6 +1,8 @@
 steps:
 - name: 'docker/compose:1.28.2'
   args: ['up', '-d']
+- name: "docker/compose:1.28.2"
+  args: ["build"]
 images: ['gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose']
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: 'backend'
