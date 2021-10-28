@@ -5,10 +5,10 @@ steps:
   args: ["build"]
 # push the images just before we update the Kubernetes deployment
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/www-bana-io/www-bana-io:latest"]
+  args: ["push", "gcr.io/$PROJECT_ID/www-bana-io:latest"]
 
 images:
-- "gcr.io/www-bana-io/www-bana-io"
+- "gcr.io/$PROJECT_ID/www-bana-io"
 
 tags:
 - "www-bana-io"
