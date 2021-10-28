@@ -1,26 +1,20 @@
-# Docker-compose on container optimized OS
+# Build-and-Dockerize-a-Full-stack-React-app-with-Node.js-MySQL-and-Nginx-for-reverse-proxy
 
-## Customizing Makefile
+Run `npm i` inside the client directory
 
-Replace `PROJECT_ID` and `USER` to match your GCP project id and username
+Run `npm i` inside the server directory
 
-## Creating Static IP address and VM
+Run `docker-compose up --build` inside the mainn project directory
 
-`make create-static-ip && make create-vm`
+Access the Adminer using route `http://localhost:8000/`.
 
-## Deleting when done (so you dont keep getting charged)
 
-`make delete-vm` --> `y`
-`make delete-static-ip` -> `y`
+To log in, use `mysql_db` as the server Username as `root` and password as `MYSQL_ROOT_PASSWORD`.
 
-## SSH onto VM:
+To start interacting with the application, open `http://localhost:3050/` on a browser.
 
-`make ssh`
+Check out the step by step explained guide [here](https://www.section.io/engineering-education/build-and-dockerize-a-full-stack-react-app-with-nodejs-and-nginx/)
 
----
+https://www.section.io/engineering-education/build-and-dockerize-a-full-stack-react-app-with-nodejs-and-nginx/
 
-## Django docker-compose example
-
-### link
-
-https://docs.docker.com/compose/django/
+yusuf karatoprak
