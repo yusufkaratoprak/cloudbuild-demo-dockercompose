@@ -1,4 +1,15 @@
 steps:
   # running docker-compose
-  - name: 'docker/compose:1.26.2'
-    args: ['up', '-d']
+  # use Docker Compose to build instead of Docker
+- name: "docker/compose:1.15.0"
+  args: ["build"]
+# push the images just before we update the Kubernetes deployment
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/www-bana-io/www-bana-io:latest"]
+
+images:
+- "gcr.io/www-bana-io/www-bana-io"
+
+tags:
+- "www-bana-io"
+- "frontend"
