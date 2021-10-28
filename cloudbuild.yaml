@@ -11,10 +11,6 @@
 #   args: ['push', 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest']
 
 steps:
-- name: 'docker/compose:1.28.2'
-  args: ['up', '-d']
-- name: "docker/compose:1.28.2"
-  args: ["build"]
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:$COMMIT_SHA', '-t', 'us.gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest', '.' ]
 images:
