@@ -23,7 +23,7 @@
 substitutions:
   _DOCKER_COMPOSE_VERSION: 1.28.2
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'docker/compose:1.28.2'
   args:
   - 'build'
   - '--build-arg'
