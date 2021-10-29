@@ -29,15 +29,15 @@ steps:
   - '--build-arg'
   - 'DOCKER_COMPOSE_VERSION=${_DOCKER_COMPOSE_VERSION}'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/docker-compose:latest'
+  - 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/docker-compose:${_DOCKER_COMPOSE_VERSION}'
+  - 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:${_DOCKER_COMPOSE_VERSION}'
   - '.'
-- name: 'gcr.io/$PROJECT_ID/docker-compose'
+- name: 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose'
   args: ['version']
 
 images:
-- 'gcr.io/$PROJECT_ID/docker-compose:latest'
-- 'gcr.io/$PROJECT_ID/docker-compose:${_DOCKER_COMPOSE_VERSION}'
+- 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:latest'
+- 'gcr.io/$PROJECT_ID/cloudbuild-demo-dockercompose:${_DOCKER_COMPOSE_VERSION}'
 tags: ['cloud-builders-community']
 
